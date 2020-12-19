@@ -21,6 +21,7 @@
   <dependencies>
 
     <dependency>
+<<<<<<< HEAD
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
       <version>20201115</version>
@@ -28,6 +29,8 @@
 
 
     <dependency>
+=======
+>>>>>>> 2077f47154aaef23dd9d98dd3fbeb0fb6a687757
       <groupId>org.java-websocket</groupId>
       <artifactId>Java-WebSocket</artifactId>
       <version>1.5.1</version>
