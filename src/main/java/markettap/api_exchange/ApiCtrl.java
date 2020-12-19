@@ -17,16 +17,21 @@ import org.json.JSONObject;
 public class ApiCtrl {
 
     private String uri;
-    private String port;
     WebSocketClient wss;
 
-    public ApiCtrl(String uri, String port) {
+    public ApiCtrl(String uri) {
 
         this.uri = uri;
-        this.port = port;
+        //this.port = port;
+        initSocket();
 
+
+
+    }
+
+    public void initSocket(){
         try {
-            wss = new WebSocketClient(new URI(uri + port), new Draft_6455()) {
+            wss = new WebSocketClient(new URI(uri), new Draft_6455()) {
                 @Override
                 public void onMessage(String message) {
                     JSONObject obj = new JSONObject(message);
@@ -35,7 +40,7 @@ public class ApiCtrl {
 
                 @Override
                 public void onOpen(ServerHandshake handshake) {
-                    System.out.println("opened connection");
+                    System.out.println("opened connection, handshake: "+handshake);
                 }
 
                 @Override
@@ -54,8 +59,27 @@ public class ApiCtrl {
             e.printStackTrace();
         }
 
+    }
+
+    public String connect(){
+        wss.connect();
 
     }
+
+    public String send(){
+
+    }
+
+
+
+    // JSONObject obj = new JSONObject();
+    // obj.put("event", "addChannel");
+    // obj.put("channel", "ok_btccny_ticker");
+    // String message = obj.toString();
+    // //send message
+    // mWs.send(message);
+
+    // mWs.close();
 
      
 
@@ -71,7 +95,6 @@ public class ApiCtrl {
     //     } catch (IOException e) {
 
     //         e.getMessage();
-    //         //TODO: handle exception
     //     }
 
 
