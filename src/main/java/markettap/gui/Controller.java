@@ -12,6 +12,11 @@ import markettap.gui.art.Art;
 import markettap.gui.models.StreamPick;
 import markettap.gui.models.topModel;
 import markettap.gui.viewports.WindowModel;
+
+import org.java_websocket.client.WebSocketClient;
+import org.java_websocket.drafts.Draft_6455;
+import org.java_websocket.handshake.ServerHandshake;
+
 /* 
  TODO: Need to populate this Controller class with the API handling of some sort,
  this because the Java-WebSocket class has Overridden "listener" methods which cannot
@@ -39,7 +44,8 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     private Art art;
     private topModel topBar;
     private StreamPick pick;
-    
+    private WebSocketClient wsc;
+        
 
     public Controller() {
         // initIcons(); // load icons outside in global thread
