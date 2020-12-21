@@ -1,4 +1,4 @@
-package markettap.gui;
+package markettap;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;

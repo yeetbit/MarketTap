@@ -1,10 +1,7 @@
-import markettap.api_exchange.ApiCtrl;
-import markettap.gui.GuiBuilder;
 
 
 
-
-public class MarketTap {
+public class Main {
     public static void main(String[] args) {
 
         new GuiBuilder();
