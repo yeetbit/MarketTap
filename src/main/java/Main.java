@@ -1,14 +1,13 @@
 
-
+import markettap.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        new GuiBuilder();
+        new Controller();
+
         
 
-        ApiCtrl con = new ApiCtrl("wss://echo.websocket.org");
-        con.connect();
 
     }
     
