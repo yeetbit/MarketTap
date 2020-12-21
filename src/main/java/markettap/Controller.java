@@ -31,7 +31,12 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     // used Color Theme light to dark: F8B195   F67280   C06C84   6C5B7B   355C7D 
     // or more greenisch light to dark: E5FCC2   9DE0AD   45ADA8   547980   594F4F 
 
+    // Instances
     WindowModel window;
+    private topModel topBar;
+    private StreamPick pick;
+    private WebSocketClient wsc;
+    
 
     // Art
     private String backgroundcolor;
@@ -43,10 +48,9 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     private ImageIcon addTrackRecordIcon;
     private ImageIcon removeCryptoIcon;
     private Art art;
-    private topModel topBar;
-    private StreamPick pick;
-    private WebSocketClient wsc;
         
+    // Global Variables
+    private boolean messageState = false;
 
     public Controller() {
         // initIcons(); // load icons outside in global thread
@@ -56,13 +60,36 @@ public class Controller extends Thread implements ActionListener, MouseListener{
 
     @Override
     public void run(){
+        initWebSocket("ws://echo.websocket.org");
+        wsc.connect();
+        System.out.println("joooooooooooo");
+        JSONObject obj = new JSONObject();
+        obj.put("massage", "hello, is somebode there");
+        String message = obj.toString();
+        //send message
+        int i = 0;
+        System.out.println("hoi");
+        while(!messageState){
+            wsc.send(message);
+            System.out.println("joehoe"+i);
+            i++;
+            if(i==1000){
+                wsc.close();
+            }
+        }
         
-        baseWindow();
-        //initIcons();
+
+
+
+        
+        // baseWindow();
+        // initIcons();
     };
 
 
     private void initWebSocket(String uri){
+
+        System.out.println("Create socket instance");
 
         try {
             wsc = new WebSocketClient(new URI(uri), new Draft_6455()) {
@@ -70,11 +97,13 @@ public class Controller extends Thread implements ActionListener, MouseListener{
                 public void onMessage(String message) {
                     JSONObject obj = new JSONObject(message);
                     String channel = obj.getString("channel");
+                    messageState = true;
+
                 }
 
                 @Override
                 public void onOpen(ServerHandshake handshake) {
-                    System.out.println("opened connection, handshake: "+handshake);
+                    System.out.println("opened connection, handshake: "+handshake.getHttpStatusMessage());
                 }
 
                 @Override
