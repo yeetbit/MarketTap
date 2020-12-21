@@ -5,6 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import javax.swing.ImageIcon;
 import markettap.gui.art.Art;
 import markettap.gui.models.StreamPick;
@@ -13,6 +16,7 @@ import markettap.gui.viewports.WindowModel;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft_6455;
 import org.java_websocket.handshake.ServerHandshake;
+import org.json.JSONObject;
 
 /* 
  TODO: Need to populate this Controller class with the API handling of some sort,
@@ -56,6 +60,42 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         baseWindow();
         //initIcons();
     };
+
+
+    private void initWebSocket(String uri){
+
+        try {
+            wsc = new WebSocketClient(new URI(uri), new Draft_6455()) {
+                @Override
+                public void onMessage(String message) {
+                    JSONObject obj = new JSONObject(message);
+                    String channel = obj.getString("channel");
+                }
+
+                @Override
+                public void onOpen(ServerHandshake handshake) {
+                    System.out.println("opened connection, handshake: "+handshake);
+                }
+
+                @Override
+                public void onClose(int code, String reason, boolean remote) {
+                    System.out.println("closed connection");
+                }
+
+                @Override
+                public void onError(Exception ex) {
+                    ex.printStackTrace();
+                }
+
+            };
+        } catch (URISyntaxException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+
+    }
 
     private void baseWindow(){
         
