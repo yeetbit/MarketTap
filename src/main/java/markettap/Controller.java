@@ -5,10 +5,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.Dimension;
+import java.io.BufferedReader;
+import java.net.Inet4Address;
+import java.net.InetSocketAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
 
 import javax.swing.ImageIcon;
+import javax.swing.JTextArea;
+
 import markettap.gui.art.Art;
 import markettap.gui.models.StreamPick;
 import markettap.gui.models.topModel;
@@ -34,6 +40,7 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     // Instances
     WindowModel window;
     private topModel topBar;
+    private JTextArea ta = new JTextArea();
     private StreamPick pick;
     private WebSocketClient wsc;
     
@@ -60,76 +67,39 @@ public class Controller extends Thread implements ActionListener, MouseListener{
 
     @Override
     public void run(){
-        initWebSocket("ws://echo.websocket.org");
-        wsc.connect();
-        System.out.println("joooooooooooo");
-        JSONObject obj = new JSONObject();
-        obj.put("massage", "hello, is somebode there");
-        String message = obj.toString();
-        //send message
-        int i = 0;
-        System.out.println("hoi");
-        while(!messageState){
-            wsc.send(message);
-            System.out.println("joehoe"+i);
-            i++;
-            if(i==1000){
-                wsc.close();
-            }
-        }
+        // initWebSocket("ws://echo.websocket.org");
+        // wsc.connect();
+        // System.out.println("joooooooooooo");
+        // JSONObject obj = new JSONObject();
+        // obj.put("massage", "hello, is somebode there");
+        // String message = obj.toString();
+        // //send message
+        // int i = 0;
+        // System.out.println("hoi");
+        // while(!messageState){
+        //     wsc.send(message);
+        //     System.out.println("joehoe"+i);
+        //     i++;
+        //     if(i==1000){
+        //         wsc.close();
+        //     }
+        // }
         
 
 
 
         
-        // baseWindow();
+        baseWindow();
         // initIcons();
     };
 
 
-    private void initWebSocket(String uri){
-
-        System.out.println("Create socket instance");
-
-        try {
-            wsc = new WebSocketClient(new URI(uri), new Draft_6455()) {
-                @Override
-                public void onMessage(String message) {
-                    JSONObject obj = new JSONObject(message);
-                    String channel = obj.getString("channel");
-                    messageState = true;
-
-                }
-
-                @Override
-                public void onOpen(ServerHandshake handshake) {
-                    System.out.println("opened connection, handshake: "+handshake.getHttpStatusMessage());
-                }
-
-                @Override
-                public void onClose(int code, String reason, boolean remote) {
-                    System.out.println("closed connection");
-                }
-
-                @Override
-                public void onError(Exception ex) {
-                    ex.printStackTrace();
-                }
-
-            };
-        } catch (URISyntaxException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-
-
-    }
 
     private void baseWindow(){
         
         window = new WindowModel("Crypto Listener", 388, 512, backgroundcolor);
         topBar = new topModel(backgroundcolor, colorLayer3, colorLayer4);
+        //ta.setSize(new Dimension(388, 256));
         window.setLayout(new BorderLayout());
         window.add(topBar, BorderLayout.NORTH);
         window.setVisible(true);
@@ -137,6 +107,7 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         topBar.importButton.addActionListener(this);
         topBar.accountButton.addActionListener(this);
         topBar.aboutButton.addActionListener(this);
+        window.add(ta);
     }
 
     private void initThemeColor(String selection){
@@ -177,6 +148,54 @@ public class Controller extends Thread implements ActionListener, MouseListener{
 
     }
 
+    private void initWebSocket(String uri){
+
+    
+
+        ta.append("\n"+"Create WSS instance");
+        
+
+        try {
+            wsc = new WebSocketClient(new URI(uri), new Draft_6455()) {
+                @Override
+                public void onMessage(String message) {
+                    // JSONObject obj = new JSONObject(message);
+                    // String channel = obj.getString("channel");
+                    // messageState = true;
+                    ta.append("\n"+"Echo from server: "+message);
+                    InetSocketAddress adrr = this.getRemoteSocketAddress();
+                    ta.append("\n"+"IPv4 Adrress: "+adrr.toString());
+                    
+
+                }
+
+                @Override
+                public void onOpen(ServerHandshake handshake) {
+                    send("connection Str7634");
+                    ta.append("\n"+"opened connection, handshake: "+"\n"+handshake.getHttpStatusMessage());
+                }
+
+                @Override
+                public void onClose(int code, String reason, boolean remote) {
+                    ta.append("\n"+"closed connection");
+                }
+
+                @Override
+                public void onError(Exception ex) {
+                    ex.printStackTrace();
+                }
+
+            };
+        } catch (URISyntaxException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+
     // private String[] collectStreamableItems(){
     //     String jeMoeder[];
 
@@ -189,11 +208,18 @@ public class Controller extends Thread implements ActionListener, MouseListener{
        
         if(e.getSource()==topBar.addStreamButton){
             System.out.println("pressed add stream button");
-            newStream();
+            try{ //newStream();
+                initWebSocket("ws://echo.websocket.org");
+                wsc.connect();
+                
+            } catch (Exception el) {
+                el.printStackTrace();
+            }
         }else if(e.getSource()==topBar.importButton){
             System.out.println("pressed import button");
         }else if(e.getSource()==topBar.aboutButton){
             System.out.println("pressed about button");
+            wsc.close();
         }else if(e.getSource()==topBar.accountButton){
             System.out.println("pressed account button");            
         }else{
