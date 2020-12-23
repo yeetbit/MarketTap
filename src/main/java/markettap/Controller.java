@@ -94,6 +94,8 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         // initIcons();
     };
 
+   
+
 
 
     private void baseWindow(){
