@@ -23,7 +23,6 @@ import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft_6455;
 import org.java_websocket.framing.PongFrame;
 import org.java_websocket.handshake.ServerHandshake;
-import org.json.JSONObject;
 
 /* 
  TODO: Need to populate this Controller class with the API handling of some sort,
@@ -169,7 +168,7 @@ public class Controller extends Thread implements ActionListener, MouseListener{
                     InetSocketAddress adrr = this.getRemoteSocketAddress();
                     ta.append("\n"+"IPv4 Adrress: "+adrr.toString());
 
-                    if(message == )
+                    
                     
 
                 }
