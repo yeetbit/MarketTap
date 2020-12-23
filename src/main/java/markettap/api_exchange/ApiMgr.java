@@ -9,48 +9,77 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Scanner;
 import com.alibaba.fastjson.JSON;
-import org.java_websocket.client.WebSocketClient;
-import org.java_websocket.drafts.Draft_6455;
-import org.java_websocket.handshake.ServerHandshake;
-import org.json.JSONException;
-import org.json.JSONObject;
+
+import markettap.api_exchange.models.BaseModel;
+import markettap.api_exchange.models.StreamObject;
 
 public class ApiMgr {
 
     private String apiconfig = "src/main/java/markettap/assets/apiconfig.json";
-    FileReader file;
+    private FileReader file;
+    private StreamObject btc;
+    private StreamObject eth;
+    private BaseModel base;
 
-
+    public ApiMgr(){
+        createObj();
+    }
+    
     /* 
     Api-manager: builds and stores "accesible Streams", and returns Arraylist<stream objects> 
 
-     */
-    
-    ApiMgr(){
-         
-    }
+    */
 
-    public void readFile(){
+    public void createObj(){
 
-        try (Scanner scanner = new Scanner (new BufferedReader(new FileReader(apiconfig)))) {
-            while(scanner.hasNextLine()){
-                
-            }
-                        
+        base = new BaseModel();
+        base.setName("Binance Stream configuration");
+        btc = new StreamObject();
+        eth = new StreamObject();
+
+        btc.setName("Bitcoin");
+        btc.setEndPointA("btc");
+        
+
+
+        btc.addEndPointB("Ethereum", "eth");
+        btc.addEndPointB("Ripple", "xrp");
+        btc.addEndPointB("Lite Coin", "ltc");
+        btc.addEndPointB("Bitcoin Cash", "bch");
+        btc.addEndPointB("Euro", "eur");
+
+        eth.setName("Ethereum");
+        eth.setEndPointA("eth");
+        eth.addEndPointB("Bitcoin", "btc");
+        eth.addEndPointB("Ripple", "xrp");
+        eth.addEndPointB("Lite Coin", "ltc");
+        eth.addEndPointB("Bitcoin Cash", "bch");
+        eth.addEndPointB("Euro", "eur");
+
+        base.addStreamObject(btc);
+        base.addStreamObject(eth);
+
+        String jsonString = JSON.toJSONString(base);
+        System.out.println(jsonString);
+
+        try(FileWriter writer = new FileWriter(apiconfig)) {
+
+            writer.write(jsonString);
+            writer.close();           
+        } catch (IOException e) {
+            e.printStackTrace();
             
-        } catch (Exception e) {
-            //TODO: handle exception
-        }
+        } 
 
         
 
 
     }
+
+
+
     
 
- 
-
-  
 
 
     

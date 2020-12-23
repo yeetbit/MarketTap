@@ -1,6 +1,6 @@
 package markettap.api_exchange.models;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class StreamObject {
 
@@ -8,7 +8,17 @@ public class StreamObject {
 
     private String name;
     private String endPointA;
-    private ArrayList<EndPointB> endPointB;
+    private List<EndPointB> bEndPoints;
+    
+
+
+    public void addEndPointB(String name, String endPoint){
+        EndPointB endb = new EndPointB();
+        endb.setName(name);
+        endb.setEndPointB(endPoint);
+        bEndPoints.add(endb);        
+        
+    }
 
     public String getName() {
         return name;
@@ -26,12 +36,15 @@ public class StreamObject {
         this.endPointA = endPointA;
     }
 
-    public ArrayList<EndPointB> getEndPointB() {
-        return endPointB;
+    public List<EndPointB> getbEndPoints() {
+        return bEndPoints;
     }
 
-    public void setEndPointB(ArrayList<EndPointB> endPointB) {
-        this.endPointB = endPointB;
+    public void setbEndPoints(List<EndPointB> bEndPoints) {
+        this.bEndPoints = bEndPoints;
     }
+
     
+
 }
+
