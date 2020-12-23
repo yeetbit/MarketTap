@@ -21,6 +21,7 @@ import markettap.gui.models.topModel;
 import markettap.gui.viewports.WindowModel;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft_6455;
+import org.java_websocket.framing.PongFrame;
 import org.java_websocket.handshake.ServerHandshake;
 import org.json.JSONObject;
 
@@ -165,6 +166,8 @@ public class Controller extends Thread implements ActionListener, MouseListener{
                     ta.append("\n"+"Echo from server: "+message);
                     InetSocketAddress adrr = this.getRemoteSocketAddress();
                     ta.append("\n"+"IPv4 Adrress: "+adrr.toString());
+
+                    if(message == )
                     
 
                 }
@@ -209,7 +212,7 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         if(e.getSource()==topBar.addStreamButton){
             System.out.println("pressed add stream button");
             try{ //newStream();
-                initWebSocket("ws://echo.websocket.org");
+                initWebSocket("wss://stream.binance.com:9443");
                 wsc.connect();
                 
             } catch (Exception el) {
