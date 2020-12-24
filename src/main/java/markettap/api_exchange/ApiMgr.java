@@ -45,6 +45,8 @@ public class ApiMgr {
 
     public String setBaseToStr(){
 
+        // test situation for object collection
+
         base = new BaseModel();
         base.setName("Binance Stream configuration");
         btc = new StreamObject();
