@@ -17,12 +17,15 @@ public class ApiMgr {
 
     private String apiconfig = "src/main/java/markettap/assets/apiconfig.json";
     private FileReader file;
+    private BaseModel base;
+    private String jStr;
+
     private StreamObject btc;
     private StreamObject eth;
-    private BaseModel base;
+
 
     public ApiMgr(){
-        createObj();
+        String jStr = createObj();
     }
     
     /* 
@@ -30,7 +33,7 @@ public class ApiMgr {
 
     */
 
-    public void createObj(){
+    public String createObj(){
 
         base = new BaseModel();
         base.setName("Binance Stream configuration");
@@ -62,6 +65,13 @@ public class ApiMgr {
         String jsonString = JSON.toJSONString(base);
         System.out.println(jsonString);
 
+        return jsonString;
+
+    }
+
+    public void exportWipe(){
+        
+
         try(FileWriter writer = new FileWriter(apiconfig)) {
 
             writer.write(jsonString);
@@ -71,10 +81,9 @@ public class ApiMgr {
             
         } 
 
-        
-
 
     }
+
 
 
 
