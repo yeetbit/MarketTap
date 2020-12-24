@@ -1,12 +1,12 @@
 package markettap.api_exchange.models;
 
-import java.util.List;
+import java.util.ArrayList;
 
 
 public class BaseModel {
 
     private String name;
-    private List<StreamObject> coinList;
+    private ArrayList<StreamObject> coinList = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -16,11 +16,11 @@ public class BaseModel {
         this.name = name;
     }
 
-    public List<StreamObject> getCoinList() {
+    public ArrayList<StreamObject> getCoinList() {
         return coinList;
     }
 
-    public void setCoinList(List<StreamObject> coinList) {
+    public void setCoinList(ArrayList<StreamObject> coinList) {
         this.coinList = coinList;
     }
 
