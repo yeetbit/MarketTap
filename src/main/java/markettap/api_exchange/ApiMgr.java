@@ -30,7 +30,7 @@ public class ApiMgr {
         //this.jStr = objToStr();
         readObjects();
 
-        System.out.println(this.base.getCoinList(this.btc.getName().toString(),this.eth.getName().toString()));
+        // System.out.println(this.base.getCoinList(this.btc.getName().toString(),this.eth.getName().toString()));
     }
     
     /* 
