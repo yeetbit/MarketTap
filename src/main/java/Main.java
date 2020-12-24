@@ -1,5 +1,4 @@
 
-import markettap.*;
 import markettap.api_exchange.ApiMgr;
 
 public class Main {
@@ -7,7 +6,7 @@ public class Main {
 
         // new Controller();
 
-        ApiMgr apiNeon = new ApiMgr();
+        new ApiMgr();
 
     }
     
