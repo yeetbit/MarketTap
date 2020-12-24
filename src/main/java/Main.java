@@ -1,12 +1,13 @@
 
-import markettap.api_exchange.ApiMgr;
+import markettap.Controller;
+// import markettap.api_exchange.ApiMgr;
 
 public class Main {
     public static void main(String[] args) {
 
-        // new Controller();
+        new Controller();
 
-        new ApiMgr();
+        // new ApiMgr();
 
     }
     
