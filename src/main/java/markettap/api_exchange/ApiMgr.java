@@ -87,8 +87,6 @@ public class ApiMgr {
 
     }
 
-    public void
-
     public void writeObjects(){
         
         try(FileWriter writer = new FileWriter(apiconfig)) {
