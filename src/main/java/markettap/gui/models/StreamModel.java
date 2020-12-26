@@ -2,6 +2,9 @@ package markettap.gui.models;
 
 import javax.swing.JPanel;
 
+import markettap.gui.elements.IconLabel;
+import markettap.gui.elements.TrackRecord;
+
 public class StreamModel extends JPanel{
 
 
@@ -15,9 +18,16 @@ public class StreamModel extends JPanel{
     private int currentValue;
     private int profitPercentage;
     private int profitAmount;
+    private int testValue;
+    
+    private
 
     // instances
-    // private IconLabel addTrackRecord;
+    private IconLabel addTrackRecord;
+    private IconLabel editTrackRecord;
+    private IconLabel removeCrypto;
+    private TrackRecord track;
+
     // private IconLabel editTrackRecord;
     // private IconLabel removeCrypto;
     // private TrackRecord track;
@@ -25,19 +35,24 @@ public class StreamModel extends JPanel{
 
 
     public StreamModel(String cryptoName) {
+
+        this.cryptoName = cryptoName;
+
+        this.setSize(64, 128);
         // this.editTrackRecord = new IconLabel();
         // this.addTrackRecord = new IconLabel();
         // this.removeCrypto = new IconLabel();
-
-        
-        
-
-        // this.cryptoName = cryptoName;
-        // this.setSize(64, 64);
-
         // this.add(editTrackRecord);
         // this.setVisible(true);
 
     }
+
+    public void setTestValue(int v){
+
+        this.testValue = v;
+
+    }
+
+    
 
 }
