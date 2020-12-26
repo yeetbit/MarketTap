@@ -7,6 +7,9 @@ import markettap.gui.elements.TrackRecord;
 
 public class StreamModel extends JPanel{
 
+    // TODO: make working concept of StreamModel with live update of testValue. Feed is implemented in ApiMgr.Class
+       
+
 
     private static final long serialVersionUID = -1893482350513633850L;
     // variables
