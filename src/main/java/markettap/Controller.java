@@ -11,11 +11,14 @@ import java.net.Inet4Address;
 import java.net.InetSocketAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
 
+import markettap.api_exchange.ApiMgr;
 import markettap.gui.art.Art;
+import markettap.gui.models.StreamModel;
 import markettap.gui.models.StreamPick;
 import markettap.gui.models.topModel;
 import markettap.gui.viewports.WindowModel;
@@ -43,6 +46,9 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     private JTextArea ta = new JTextArea();
     private StreamPick pick;
     private WebSocketClient wsc;
+    private ArrayList<ApiMgr> apiStack = new ArrayList<>();
+    private ArrayList<StreamModel> strStack = new ArrayList<>();
+    private ArrayList<ActionListener> eventStack = new ArrayList<>();
     
 
     // Art
@@ -143,20 +149,21 @@ public class Controller extends Thread implements ActionListener, MouseListener{
 
     }
 
-    private void newStream(){
-        window.add(pick);
-        // streamModel = new StreamModel(name);
+    private String newStream(){
+        StreamModel str;
+        String pickedStr = window.add(pick);
+        if(pickedStr!=null){
+            str = new StreamModel(pickedStr);
+
+        }
         
 
+        return null;
     }
 
     private void initWebSocket(String uri){
 
-    
-
         ta.append("\n"+"Create WSS instance");
-        
-
         try {
             wsc = new WebSocketClient(new URI(uri), new Draft_6455()) {
                 @Override
@@ -165,12 +172,8 @@ public class Controller extends Thread implements ActionListener, MouseListener{
                     // String channel = obj.getString("channel");
                     // messageState = true;
                     ta.append("\n"+"Echo from server: "+message);
-                    InetSocketAddress adrr = this.getRemoteSocketAddress();
-                    ta.append("\n"+"IPv4 Adrress: "+adrr.toString());
-
-                    
-                    
-
+                    InetSocketAddress addr = this.getRemoteSocketAddress();
+                    ta.append("\n"+"IPv4 Address: "+addr.toString());
                 }
 
                 @Override
@@ -195,17 +198,13 @@ public class Controller extends Thread implements ActionListener, MouseListener{
             e.printStackTrace();
         }
 
+    }
+
+    private void initStreamUI(String name){
+        
 
 
     }
-
-
-    // private String[] collectStreamableItems(){
-    //     String jeMoeder[];
-
-    //     return jeMoeder;
-
-    // }
 
     @Override
     public void actionPerformed(ActionEvent e){
@@ -213,7 +212,7 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         if(e.getSource()==topBar.addStreamButton){
             System.out.println("pressed add stream button");
             try{ //newStream();
-                initWebSocket("wss://stream.binance.com:9443");
+                initWebSocket("ws://echo.websocket.org");
                 wsc.connect();
                 
             } catch (Exception el) {
@@ -260,25 +259,6 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         // TODO Auto-generated method stub
 
     }
-
-
-    // // static methods
-    // protected static void EventHandling(int iD){
-    //     if(iD==1){
-    //         System.out.println("pressed add stream button");
-    //     }else if(iD==2){
-    //         System.out.println("pressed import button");
-    //     }else if(iD==4){
-    //         System.out.println("pressed about button");
-    //     }else if(iD==3){
-    //         System.out.println("pressed account button");            
-    //     }else{
-    //         System.out.println("something went wrong, button id is: "+iD);
-    //     }
-    // }
-
-
-
 
 
     
