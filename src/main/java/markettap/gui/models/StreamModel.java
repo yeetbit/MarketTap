@@ -23,8 +23,7 @@ public class StreamModel extends JPanel{
     private int profitAmount;
     private int testValue;
     
-    private
-
+    
     // instances
     private IconLabel addTrackRecord;
     private IconLabel editTrackRecord;
