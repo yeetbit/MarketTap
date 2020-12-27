@@ -25,6 +25,8 @@ public class ApiMgr {
     private StreamObject btc;
     private StreamObject eth;
 
+    private String[] arrayOf;
+
 
     public ApiMgr(){
         //this.jStr = objToStr();
@@ -81,6 +83,13 @@ public class ApiMgr {
 
     }
 
+    public String[] getArrayOfAllCoins(){
+
+        
+       
+        return arrayOf;
+    }
+
     public void addStreamObject(StreamObject o){
 
         base.addStreamObject(o);
@@ -107,6 +116,8 @@ public class ApiMgr {
         }
 
     }
+
+    
 
 
 

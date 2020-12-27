@@ -2,17 +2,30 @@ package markettap.gui.models;
 
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class StreamPick extends JPanel {
+public class StreamPick extends JPanel implements ActionListener {
 
     private static final long serialVersionUID = -7042497925964036549L;
 
-    public JComboBox selector;
+    public JComboBox<String> selector;
     private String[] items;
-
+    
     public StreamPick(String items[]){
         this.items = items;
-        this.selector = new JComboBox<String[]>();
+        this.selector = new JComboBox<String>(items);
+        this.selector.setSelectedIndex(items.length-1);
+        this.selector.addActionListener(selector);
+        
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent event){
+        event.getSource();
 
     }
 

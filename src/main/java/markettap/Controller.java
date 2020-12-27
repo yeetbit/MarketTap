@@ -13,6 +13,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
+import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
 
@@ -49,6 +50,7 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     private ArrayList<ApiMgr> apiStack = new ArrayList<>();
     private ArrayList<StreamModel> strStack = new ArrayList<>();
     private ArrayList<ActionListener> eventStack = new ArrayList<>();
+    private ApiMgr apiMgr = new ApiMgr();
     
 
     // Art
@@ -150,13 +152,21 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     }
 
     private String newStream(){
-        StreamModel str;
-        String pickedStr = window.add(pick);
-        if(pickedStr!=null){
-            str = new StreamModel(pickedStr);
+        apiMgr.readObjects();
+        String[] arrayOf = apiMgr.getArrayOfAllCoins();
+        pick = new StreamPick(arrayOf){
+            @Override
+            actionPerformed(ActionEvent event){
 
-        }
+            }
+        };
+        window.add(pick);
         
+
+
+       
+        if()
+        StreamModel str;
 
         return null;
     }
