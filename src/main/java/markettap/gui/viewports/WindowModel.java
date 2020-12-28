@@ -1,7 +1,7 @@
 package markettap.gui.viewports;
 
-import javax.swing.JFrame;
-import java.awt.Color;
+import java.awt.*;
+import javax.swing.*;
 
 
 public class WindowModel extends JFrame {
@@ -22,9 +22,9 @@ public class WindowModel extends JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(Color.decode(backGroundColor));
-        
-
-        //this.setVisible(true);
+        this.setLayout( new FlowLayout());
+        // this.pack();
+        // this.setVisible(true);
 
         
     }
