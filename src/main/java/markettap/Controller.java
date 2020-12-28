@@ -19,6 +19,7 @@ import javax.swing.JTextArea;
 
 import markettap.api_exchange.ApiMgr;
 import markettap.gui.art.Art;
+import markettap.gui.models.MenuBarModel;
 import markettap.gui.models.StreamModel;
 import markettap.gui.models.StreamPick;
 import markettap.gui.models.topModel;
@@ -42,8 +43,9 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     // or more greenisch light to dark: E5FCC2   9DE0AD   45ADA8   547980   594F4F 
 
     // Instances
-    WindowModel window;
+    private WindowModel window;
     private topModel topBar;
+    private MenuBarModel menu;
     private JTextArea ta;
     private StreamPick pick;
     private WebSocketClient wsc;
@@ -86,11 +88,13 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     private void baseWindow(){
         
         window = new WindowModel("Crypto Listener", 388, 512, backgroundcolor);
+        menu = new MenuBarModel();
         // topBar = new topModel(backgroundcolor, colorLayer3, colorLayer4);
         // ta = new JTextArea();
         // ta.setSize(new Dimension(388, 256));
 
         // window.setLayout(new BorderLayout());
+        window.setJMenuBar(menu);
         // window.add(topBar, BorderLayout.NORTH);
         
         // topBar.addStreamButton.addActionListener(this);;
@@ -98,9 +102,10 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         // topBar.accountButton.addActionListener(this);
         // topBar.aboutButton.addActionListener(this);
         // window.add(ta);
-        newStream();
+        
+        // newStream();
         window.setVisible(true);
-        window.pack();
+        //window.pack();
     }
 
     private void initThemeColor(String selection){
