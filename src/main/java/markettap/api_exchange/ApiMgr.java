@@ -2,6 +2,7 @@ package markettap.api_exchange;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.Paths;
 import java.util.stream.*;
 import java.nio.file.Files;
@@ -17,8 +18,7 @@ import markettap.api_exchange.models.StreamObject;
 
 public class ApiMgr {
 
-    private String apiconfig = "src/main/java/markettap/assets/apiconfig.json";
-    //private FileReader file;
+    private final String apiconfig = "src/main/java/markettap/assets/apiconfig.json";
     private BaseModel base;
     private String jStr;
 
@@ -84,6 +84,8 @@ public class ApiMgr {
     }
 
     public String[] getArrayOfAllCoins(){
+
+        String[] arrayOf = {"Bitcoin", "Ripple", "Ethereum", "Frontier", "Lite Coin"};
 
         
        
