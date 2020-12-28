@@ -44,7 +44,7 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     // Instances
     WindowModel window;
     private topModel topBar;
-    private JTextArea ta = new JTextArea();
+    private JTextArea ta;
     private StreamPick pick;
     private WebSocketClient wsc;
     private ArrayList<ApiMgr> apiStack = new ArrayList<>();
@@ -75,30 +75,8 @@ public class Controller extends Thread implements ActionListener, MouseListener{
 
     @Override
     public void run(){
-        // initWebSocket("ws://echo.websocket.org");
-        // wsc.connect();
-        // System.out.println("joooooooooooo");
-        // JSONObject obj = new JSONObject();
-        // obj.put("massage", "hello, is somebode there");
-        // String message = obj.toString();
-        // //send message
-        // int i = 0;
-        // System.out.println("hoi");
-        // while(!messageState){
-        //     wsc.send(message);
-        //     System.out.println("joehoe"+i);
-        //     i++;
-        //     if(i==1000){
-        //         wsc.close();
-        //     }
-        // }
-        
 
-
-
-        
         baseWindow();
-        // initIcons();
     };
 
    
@@ -108,16 +86,21 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     private void baseWindow(){
         
         window = new WindowModel("Crypto Listener", 388, 512, backgroundcolor);
-        topBar = new topModel(backgroundcolor, colorLayer3, colorLayer4);
-        //ta.setSize(new Dimension(388, 256));
-        window.setLayout(new BorderLayout());
-        window.add(topBar, BorderLayout.NORTH);
+        // topBar = new topModel(backgroundcolor, colorLayer3, colorLayer4);
+        // ta = new JTextArea();
+        // ta.setSize(new Dimension(388, 256));
+
+        // window.setLayout(new BorderLayout());
+        // window.add(topBar, BorderLayout.NORTH);
+        
+        // topBar.addStreamButton.addActionListener(this);;
+        // topBar.importButton.addActionListener(this);
+        // topBar.accountButton.addActionListener(this);
+        // topBar.aboutButton.addActionListener(this);
+        // window.add(ta);
+        newStream();
         window.setVisible(true);
-        topBar.addStreamButton.addActionListener(this);;
-        topBar.importButton.addActionListener(this);
-        topBar.accountButton.addActionListener(this);
-        topBar.aboutButton.addActionListener(this);
-        window.add(ta);
+        window.pack();
     }
 
     private void initThemeColor(String selection){
@@ -154,18 +137,9 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     private String newStream(){
         apiMgr.readObjects();
         String[] arrayOf = apiMgr.getArrayOfAllCoins();
-        pick = new StreamPick(arrayOf){
-            @Override
-            actionPerformed(ActionEvent event){
-
-            }
-        };
+        pick = new StreamPick(arrayOf);
         window.add(pick);
         
-
-
-       
-        if()
         StreamModel str;
 
         return null;
@@ -181,9 +155,11 @@ public class Controller extends Thread implements ActionListener, MouseListener{
                     // JSONObject obj = new JSONObject(message);
                     // String channel = obj.getString("channel");
                     // messageState = true;
-                    ta.append("\n"+"Echo from server: "+message);
-                    InetSocketAddress addr = this.getRemoteSocketAddress();
-                    ta.append("\n"+"IPv4 Address: "+addr.toString());
+                    // ta.append("\n"+"Echo from server: "+message);
+                    // InetSocketAddress addr = this.getRemoteSocketAddress();
+                    // ta.append("\n"+"IPv4 Address: "+addr.toString());
+
+                    newStream();
                 }
 
                 @Override
@@ -221,9 +197,10 @@ public class Controller extends Thread implements ActionListener, MouseListener{
        
         if(e.getSource()==topBar.addStreamButton){
             System.out.println("pressed add stream button");
-            try{ //newStream();
-                initWebSocket("ws://echo.websocket.org");
-                wsc.connect();
+            try{ 
+                newStream();
+                // initWebSocket("ws://echo.websocket.org");
+                // wsc.connect();
                 
             } catch (Exception el) {
                 el.printStackTrace();
@@ -232,7 +209,6 @@ public class Controller extends Thread implements ActionListener, MouseListener{
             System.out.println("pressed import button");
         }else if(e.getSource()==topBar.aboutButton){
             System.out.println("pressed about button");
-            wsc.close();
         }else if(e.getSource()==topBar.accountButton){
             System.out.println("pressed account button");            
         }else{
