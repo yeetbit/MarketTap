@@ -22,7 +22,7 @@ public class WindowModel extends JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(Color.decode(backGroundColor));
-        this.setLayout( new FlowLayout());
+        // this.setLayout( new FlowLayout());
         // this.pack();
         // this.setVisible(true);
 
