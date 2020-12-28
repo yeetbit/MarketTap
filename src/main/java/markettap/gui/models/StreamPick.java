@@ -13,8 +13,7 @@ public class StreamPick extends JPanel {
     public StreamPick(String items[]){
         this.items = items;
         this.selector = new JComboBox<String>(items);
-        this.selector.setSelectedIndex(items.length-1);
-        this.selector.addActionListener(selector);
+        // this.selector.setSelectedIndex(items.length-1);
         
 
     }
