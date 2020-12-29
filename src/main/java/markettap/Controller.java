@@ -81,29 +81,12 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         baseWindow();
     };
 
-   
-
 
 
     private void baseWindow(){
         
         window = new WindowModel("Crypto Listener", 388, 512, backgroundcolor);
         menu = new MenuBarModel();
-        // topBar = new topModel(backgroundcolor, colorLayer3, colorLayer4);
-        // ta = new JTextArea();
-        // ta.setSize(new Dimension(388, 256));
-
-        // window.setLayout(new BorderLayout());
-        window.setJMenuBar(menu);
-        // window.add(topBar, BorderLayout.NORTH);
-        
-        // topBar.addStreamButton.addActionListener(this);;
-        // topBar.importButton.addActionListener(this);
-        // topBar.accountButton.addActionListener(this);
-        // topBar.aboutButton.addActionListener(this);
-        // window.add(ta);
-        
-        // newStream();
         window.setVisible(true);
         //window.pack();
     }
