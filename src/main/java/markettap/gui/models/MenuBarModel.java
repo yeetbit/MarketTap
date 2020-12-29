@@ -10,78 +10,76 @@ public class MenuBarModel extends JMenuBar{
     
     private static final long serialVersionUID = -1965926954804999754L;
 
-    private JMenu edit;
-    private JMenu taps;
-    private JMenuItem openTap;
-    private JMenuItem changeTap;
-    private JMenuItem closeTap;
-    private JMenuItem createNewTap;
-    private JMenuItem modifyConfig;
+    private MenuModel edit;
+    private MenuModel taps;
+    private MenuItemModel openTap;
+    private MenuItemModel changeTap;
+    private MenuItemModel closeTap;
+    private MenuItemModel createNewTap;
+    private MenuItemModel modifyConfig;
 
-    private JMenu warnings;
-    private JMenuItem newWarning;
-    private JMenuItem changeWarning;
-    private JMenuItem removeWarning;
-    private JMenu importExport;
-    private JMenuItem preferences;
-    private JMenuItem exit;
+    private MenuModel warnings;
+    private MenuItemModel newWarning;
+    private MenuItemModel changeWarning;
+    private MenuItemModel removeWarning;
+    private MenuModel importExport;
+    private MenuItemModel preferences;
+    private MenuItemModel exit;
     
-    private JMenu view;
-    private JMenu theme;
-    private JMenuItem a;
-    private JMenuItem b;
-    private JMenu window;
-    private JMenuItem larger;
-    private JMenuItem smaller;
+    private MenuModel view;
+    private MenuModel theme;
+    private MenuItemModel a;
+    private MenuItemModel b;
+    private MenuModel window;
+    private MenuItemModel larger;
+    private MenuItemModel smaller;
 
-    private JMenu help;
-    private JMenuItem welcome;
-    private JMenuItem debug;
-    private JMenuItem chat;
-    private JMenuItem about;
+    private MenuModel help;
+    private MenuItemModel welcome;
+    private MenuItemModel debug;
+    private MenuItemModel chat;
+    private MenuItemModel about;
 
 
-    private ArrayList<MenuModel> menus;
-    private ArrayList<MenuItemModel> items;
+    // private ArrayList<MenuModel> menus;
+    // private ArrayList<MenuItemModel> items;
 
 
     public MenuBarModel(){
 
-        this.menus = new ArrayList<MenuModel>();
-        this.items = new ArrayList<MenuItemModel>();
-
-
+        // this.menus = new ArrayList<MenuModel>();
+        // this.items = new ArrayList<MenuItemModel>();
         
-        edit = new JMenu("edit");
-        taps = new JMenu("taps");
-        openTap = new JMenuItem("open");
-        changeTap = new JMenuItem("modify");
-        closeTap = new JMenuItem("delete");
-        createNewTap = new JMenuItem("new entry");
-        modifyConfig = new JMenuItem("edit connections");
+        edit = new MenuModel("edit");
+        taps = new MenuModel("taps");
+        openTap = new MenuItemModel("open");
+        changeTap = new MenuItemModel("modify");
+        closeTap = new MenuItemModel("delete");
+        createNewTap = new MenuItemModel("new entry");
+        modifyConfig = new MenuItemModel("edit connections");
 
-        warnings = new JMenu("warnings");
-        newWarning = new JMenuItem("new");
-        changeWarning = new JMenuItem("modify");
-        removeWarning = new JMenuItem("delete");
+        warnings = new MenuModel("warnings");
+        newWarning = new MenuItemModel("new");
+        changeWarning = new MenuItemModel("modify");
+        removeWarning = new MenuItemModel("delete");
     
-        importExport = new JMenu("import export");
-        preferences = new JMenu("preferences");
-        exit = new JMenuItem("exit");
+        importExport = new MenuModel("import export");
+        preferences = new MenuItemModel("preferences");
+        exit = new MenuItemModel("exit");
 
-        view = new JMenu("view");
-        theme = new JMenu("theme");
-        a = new JMenuItem("theme A");
-        b = new JMenuItem("theme B");
-        window = new JMenu("window");
-        larger = new JMenuItem("larger");
-        smaller = new JMenuItem("smaller");
+        view = new MenuModel("view");
+        theme = new MenuModel("theme");
+        a = new MenuItemModel("theme A");
+        b = new MenuItemModel("theme B");
+        window = new MenuModel("window");
+        larger = new MenuItemModel("larger");
+        smaller = new MenuItemModel("smaller");
     
-        help = new JMenu("help");
-        welcome = new JMenuItem("welcome");
-        debug = new JMenuItem("debug");
-        chat = new JMenuItem("chat");
-        about = new JMenuItem("about");
+        help = new MenuModel("help");
+        welcome = new MenuItemModel("welcome");
+        debug = new MenuItemModel("debug");
+        chat = new MenuItemModel("chat");
+        about = new MenuItemModel("about");
 
         taps.add(openTap);
         taps.add(changeTap);
@@ -116,73 +114,83 @@ public class MenuBarModel extends JMenuBar{
         this.add(help);
 
     }
-    public void setName(String name){
-        this.setName(name);
-    }
+    // public void setName(String name){
+    //     this.setName(name);
+    // }
 
-    public String getName(){
-        return this.getName();
-    }
-
-    public void setBackground(String bgHex){
-        this.setBackground(Color.decode(bgHex));
-    }
-
-    public void setMenus(MenuModel m){
-        this.menus.add(m);
-    }
-
+    // public String getName(){
+    //     return this.getName();
+    // }
+    
+    // public void setBackground(String bgHex){
+    //     this.setBackground(Color.decode(bgHex));
+    // }
+    
+    // public void setMenus(MenuModel m){
+    //     this.menus.add(m);
+    // }
+    
     public class MenuModel extends JMenu{
         
-        private ArrayList<MenuModel> menus;
-        private ArrayList<MenuItemModel> items;
-
-        public MenuModel(){
-            this.menus = new ArrayList<MenuModel>();
-            this.items = new ArrayList<MenuItemModel>();
-        }
-
         private static final long serialVersionUID = 1L;
+        // private ArrayList<MenuModel> menus; 
+        // private ArrayList<MenuItemModel> items;
 
-        public void setName(String name){
-            this.setName(name);
-        }
+        // public MenuModel(){
+        //     this.menus = new ArrayList<MenuModel>();
+        //     this.items = new ArrayList<MenuItemModel>();
+        // }
 
-        public String getName(){
-            return this.getName();
-        }
+        public MenuModel(String name){
 
-        public void setBackground(String bgHex){
-            this.setBackground(Color.decode(bgHex));
-        }
-
-        public void setMenus(MenuModel m){
-            this.add(m);
-        }
-
-        public void setItems(String item){
-            
-            this.add(item);
+            this.setText(name);
             
         }
+
+
+        // public void setName(String name){
+        //     this.setName(name);
+        // }
+
+        // public String getName(){
+        //     return this.getName();
+        // }
+
+        // public void setBackground(String bgHex){
+        //     this.setBackground(Color.decode(bgHex));
+        // }
+
+        // public void setMenus(MenuModel m){
+        //     this.add(m);
+        // }
+
+        // public void setItems(String item){      
+        //     this.add(item);
+        // }
     }
 
     public class MenuItemModel extends JMenuItem{
 
         private static final long serialVersionUID = 1L;
 
-        public void setName(String name){
-            this.setName(name);
+        public MenuItemModel(String name){
+            this.setText(name);
         }
 
-        public String getName(){
-            return this.getName();
-        }
+        // public MenuItemModel(){
+        // }
 
-        public void setBackground(String bgHex){
-            this.setBackground(Color.decode(bgHex));
-        }
+        // public void setName(String name){
+        //     this.setName(name);
+        // }
 
+        // public String getName(){
+        //     return this.getName();
+        // }
+
+        // public void setBackground(String bgHex){
+        //     this.setBackground(Color.decode(bgHex));
+        // }
 
     }
     
