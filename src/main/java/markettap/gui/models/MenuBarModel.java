@@ -109,6 +109,7 @@ public class MenuBarModel extends JMenuBar{
         help.add(debug);
         help.add(chat);
         help.add(about);
+        
         this.add(edit);
         this.add(view);
         this.add(help);
