@@ -87,6 +87,7 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         
         window = new WindowModel("Crypto Listener", 388, 512, backgroundcolor);
         menu = new MenuBarModel();
+        window.setJMenuBar(menu);
         window.setVisible(true);
         //window.pack();
     }
