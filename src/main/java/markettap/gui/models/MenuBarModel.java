@@ -41,15 +41,8 @@ public class MenuBarModel extends JMenuBar{
     private MenuItemModel about;
 
 
-    // private ArrayList<MenuModel> menus;
-    // private ArrayList<MenuItemModel> items;
-
-
     public MenuBarModel(){
-
-        // this.menus = new ArrayList<MenuModel>();
-        // this.items = new ArrayList<MenuItemModel>();
-        
+       
         edit = new MenuModel("edit");
         taps = new MenuModel("taps");
         openTap = new MenuItemModel("open");
@@ -115,59 +108,76 @@ public class MenuBarModel extends JMenuBar{
         this.add(help);
 
     }
-    // public void setName(String name){
-    //     this.setName(name);
-    // }
+    
+    public MenuItemModel getOpenTap() {
+        return openTap;
+    }
 
-    // public String getName(){
-    //     return this.getName();
-    // }
-    
-    // public void setBackground(String bgHex){
-    //     this.setBackground(Color.decode(bgHex));
-    // }
-    
-    // public void setMenus(MenuModel m){
-    //     this.menus.add(m);
-    // }
-    
+    public MenuItemModel getChangeTap() {
+        return changeTap;
+    }
+
+    public MenuItemModel getCloseTap() {
+        return closeTap;
+    }
+
+    public MenuItemModel getCreateNewTap() {
+        return createNewTap;
+    }
+
+    public MenuItemModel getModifyConfig() {
+        return modifyConfig;
+    }
+
+    public MenuItemModel getNewWarning() {
+        return newWarning;
+    }
+
+    public MenuItemModel getChangeWarning() {
+        return changeWarning;
+    }
+
+    public MenuItemModel getRemoveWarning() {
+        return removeWarning;
+    }
+
+    public MenuModel getImportExport() {
+        return importExport;
+    }
+
+    public MenuItemModel getPreferences() {
+        return preferences;
+    }
+
+    public MenuItemModel getExit() {
+        return exit;
+    }
+
+    public MenuItemModel getA() {
+        return a;
+    }
+
+    public MenuItemModel getB() {
+        return b;
+    }
+
+    public MenuItemModel getLarger() {
+        return larger;
+    }
+
+    public MenuItemModel getSmaller() {
+        return smaller;
+    }
+
     public class MenuModel extends JMenu{
         
         private static final long serialVersionUID = 1L;
-        // private ArrayList<MenuModel> menus; 
-        // private ArrayList<MenuItemModel> items;
-
-        // public MenuModel(){
-        //     this.menus = new ArrayList<MenuModel>();
-        //     this.items = new ArrayList<MenuItemModel>();
-        // }
 
         public MenuModel(String name){
 
             this.setText(name);
-            
         }
 
-
-        // public void setName(String name){
-        //     this.setName(name);
-        // }
-
-        // public String getName(){
-        //     return this.getName();
-        // }
-
-        // public void setBackground(String bgHex){
-        //     this.setBackground(Color.decode(bgHex));
-        // }
-
-        // public void setMenus(MenuModel m){
-        //     this.add(m);
-        // }
-
-        // public void setItems(String item){      
-        //     this.add(item);
-        // }
     }
 
     public class MenuItemModel extends JMenuItem{
@@ -177,21 +187,6 @@ public class MenuBarModel extends JMenuBar{
         public MenuItemModel(String name){
             this.setText(name);
         }
-
-        // public MenuItemModel(){
-        // }
-
-        // public void setName(String name){
-        //     this.setName(name);
-        // }
-
-        // public String getName(){
-        //     return this.getName();
-        // }
-
-        // public void setBackground(String bgHex){
-        //     this.setBackground(Color.decode(bgHex));
-        // }
 
     }
     
