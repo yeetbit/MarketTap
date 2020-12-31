@@ -81,8 +81,6 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         baseWindow();
     };
 
-
-
     private void baseWindow(){
         
         window = new WindowModel("Crypto Listener", 388, 512, backgroundcolor);
@@ -90,6 +88,27 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         window.setJMenuBar(menu);
         window.setVisible(true);
         //window.pack();
+
+        menu.getOpenTap().addActionListener(this);
+        menu.getChangeTap().addActionListener(this);
+        menu.getCloseTap().addActionListener(this);
+        menu.getCreateNewTap().addActionListener(this);
+        menu.getModifyConfig().addActionListener(this);
+        menu.getNewWarning().addActionListener(this);
+        menu.getChangeWarning().addActionListener(this);
+        menu.getRemoveWarning().addActionListener(this);
+        menu.getImportExport().addActionListener(this);
+        menu.getPreferences().addActionListener(this);
+        menu.getExit().addActionListener(this);
+        menu.getA().addActionListener(this);
+        menu.getB().addActionListener(this);
+        menu.getLarger().addActionListener(this);
+        menu.getSmaller().addActionListener(this);
+        menu.getWelcome().addActionListener(this);
+        menu.getDebug().addActionListener(this);
+        menu.getChat().addActionListener(this);
+        menu.getAbout().addActionListener(this);
+
     }
 
     private void initThemeColor(String selection){
@@ -134,6 +153,96 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         return null;
     }
 
+    private void initStreamUI(String name){
+        
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e){
+       
+        if(e.getSource()==menu.getOpenTap()){
+            System.out.println("pressed Open stream button");
+            try{ 
+                newStream();
+                // initWebSocket("ws://echo.websocket.org");
+                // wsc.connect();
+                
+            } catch (Exception el) {
+                el.printStackTrace();
+            }
+        }else if(e.getSource()==menu.getChangeTap()){
+            System.out.println("pressed ChangeTap");
+        }else if(e.getSource()==menu.getCloseTap()){
+            System.out.println("pressed close button");
+        }else if(e.getSource()==menu.getCreateNewTap()){
+            System.out.println("pressed new entry button");            
+        }else if(e.getSource()==menu.getModifyConfig()){
+            System.out.println("pressed ChangeTap");
+        }else if(e.getSource()==menu.getNewWarning()){
+            System.out.println("pressed new warning button");
+        }else if(e.getSource()==menu.getChangeWarning()){
+            System.out.println("pressed ChangeTap");
+        }else if(e.getSource()==menu.getRemoveWarning()){
+            System.out.println("pressed remove warning");
+        }else if(e.getSource()==menu.getImportExport()){
+            System.out.println("pressed import export");            
+        }else if(e.getSource()==menu.getPreferences()){
+            System.out.println("pressed preferences");
+        }else if(e.getSource()==menu.getExit()){
+            System.out.println("pressed exit");
+            window.setVisible(false);
+            System.exit(0);
+        }else if(e.getSource()==menu.getA()){
+            System.out.println("pressed theme A");            
+        }else if(e.getSource()==menu.getB()){
+            System.out.println("pressed theme B");
+        }else if(e.getSource()==menu.getLarger()){
+            System.out.println("Pressed Larger View");
+        }else if(e.getSource()==menu.getSmaller()){
+            System.out.println("Pressed Smaller View");            
+        }else if(e.getSource()==menu.getWelcome()){
+            System.out.println("pressed Welcom button");            
+        }else if(e.getSource()==menu.getDebug()){
+            System.out.println("pressed Debug");
+        }else if(e.getSource()==menu.getChat()){
+            System.out.println("Pressed chat");
+        }else if(e.getSource()==menu.getAbout()){
+            System.out.println("Pressed About");            
+        }else{
+            System.out.println("something went wrong, button id is: "+e.getSource());
+        }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        // TODO Auto-generated method stub
+
+    }
+
     private void initWebSocket(String uri){
 
         ta.append("\n"+"Create WSS instance");
@@ -174,69 +283,5 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         }
 
     }
-
-    private void initStreamUI(String name){
-        
-
-
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e){
-       
-        if(e.getSource()==menu.){
-            System.out.println("pressed add stream button");
-            try{ 
-                newStream();
-                // initWebSocket("ws://echo.websocket.org");
-                // wsc.connect();
-                
-            } catch (Exception el) {
-                el.printStackTrace();
-            }
-        }else if(e.getSource()==topBar.importButton){
-            System.out.println("pressed import button");
-        }else if(e.getSource()==topBar.aboutButton){
-            System.out.println("pressed about button");
-        }else if(e.getSource()==topBar.accountButton){
-            System.out.println("pressed account button");            
-        }else{
-            System.out.println("something went wrong, button id is: "+e.getSource());
-        }
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        // TODO Auto-generated method stub
-
-    }
-
-
-    
-
 
 }
