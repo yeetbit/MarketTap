@@ -18,7 +18,11 @@ import markettap.api_exchange.models.StreamObject;
 
 public class ApiMgr {
 
-    private final String apiconfig = "src/main/java/markettap/assets/apiconfig.json";
+    private static final String apiKey = "eBEUqZcRsBQu2IJ72J2ODBcFhK4P5X9ZjAsXCXO9NPPkJXNuh8wuVkRCzeOoK6FJ";
+    private static final String secretApiKey = "Su5gOTnH0xsfrM6NDdsi3WHRjgu8lhRtiLSlFaYq1ceaSGNmBMcwGFTLKFUzCjeK";
+    private static final String baseEndpoint = "https://fapi.binance.com";
+    private static final String apiconfig = "src/main/java/markettap/assets/apiconfig.json";
+
     private BaseModel base;
     private String jStr;
 
