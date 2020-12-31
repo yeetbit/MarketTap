@@ -168,6 +168,22 @@ public class MenuBarModel extends JMenuBar{
     public MenuItemModel getSmaller() {
         return smaller;
     }
+    
+    public MenuItemModel getWelcome() {
+        return welcome;
+    }
+
+    public MenuItemModel getDebug() {
+        return debug;
+    }
+
+    public MenuItemModel getChat() {
+        return chat;
+    }
+
+    public MenuItemModel getAbout() {
+        return about;
+    }
 
     public class MenuModel extends JMenu{
         
@@ -189,5 +205,8 @@ public class MenuBarModel extends JMenuBar{
         }
 
     }
+
+
+
     
 }
