@@ -184,7 +184,7 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     @Override
     public void actionPerformed(ActionEvent e){
        
-        if(e.getSource()==topBar.addStreamButton){
+        if(e.getSource()==menu.){
             System.out.println("pressed add stream button");
             try{ 
                 newStream();
