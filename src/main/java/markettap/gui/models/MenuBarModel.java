@@ -12,7 +12,8 @@ public class MenuBarModel extends JMenuBar{
 
     private MenuModel edit;
     private MenuModel taps;
-    private MenuItemModel openTap;
+    private MenuModel openTap;
+    // private ArrayList<MenuItemModel> coinItems;
     private MenuItemModel changeTap;
     private MenuItemModel closeTap;
     private MenuItemModel createNewTap;
@@ -45,7 +46,7 @@ public class MenuBarModel extends JMenuBar{
        
         edit = new MenuModel("edit");
         taps = new MenuModel("taps");
-        openTap = new MenuItemModel("open");
+        openTap = new MenuModel("open");
         changeTap = new MenuItemModel("modify");
         closeTap = new MenuItemModel("delete");
         createNewTap = new MenuItemModel("new entry");
@@ -109,8 +110,11 @@ public class MenuBarModel extends JMenuBar{
 
     }
     
-    public MenuItemModel getOpenTap() {
-        return openTap;
+    public MenuItemModel setOpenTap(String name) {
+        MenuItemModel item = new MenuItemModel(name);
+        openTap.add(item);
+        return item;
+            
     }
 
     public MenuItemModel getChangeTap() {

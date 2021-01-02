@@ -89,11 +89,7 @@ public class ApiMgr {
     }
 
     public String[] getArrayOfAllCoins(){
-
         String[] arrayOf = {"Bitcoin", "Ripple", "Ethereum", "Frontier", "Lite Coin"};
-
-        
-       
         return arrayOf;
     }
 

@@ -23,6 +23,7 @@ import markettap.gui.models.MenuBarModel;
 import markettap.gui.models.StreamModel;
 import markettap.gui.models.StreamPick;
 import markettap.gui.models.topModel;
+import markettap.gui.models.MenuBarModel.MenuModel;
 import markettap.gui.viewports.WindowModel;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft_6455;
@@ -51,7 +52,7 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     private WebSocketClient wsc;
     private ArrayList<ApiMgr> apiStack = new ArrayList<>();
     private ArrayList<StreamModel> strStack = new ArrayList<>();
-    private ArrayList<ActionListener> eventStack = new ArrayList<>();
+    private ArrayList<MenuBarModel.MenuItemModel> eventStack = new ArrayList<>();
     private ApiMgr apiMgr = new ApiMgr();
     
 
@@ -88,8 +89,18 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         window.setJMenuBar(menu);
         window.setVisible(true);
         //window.pack();
+        String[] ar = apiMgr.getArrayOfAllCoins();
 
-        menu.getOpenTap().addActionListener(this);
+        for (String name : ar) {
+            MenuBarModel.MenuItemModel item = menu.setOpenTap(name);
+
+            eventStack.add(item);
+            
+            
+        }
+
+        
+
         menu.getChangeTap().addActionListener(this);
         menu.getCloseTap().addActionListener(this);
         menu.getCreateNewTap().addActionListener(this);
@@ -160,7 +171,7 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     @Override
     public void actionPerformed(ActionEvent e){
        
-        if(e.getSource()==menu.getOpenTap()){
+        if(e.getSource()==menu.getChangeTap()){
             System.out.println("pressed Open stream button");
             try{ 
                 newStream();
