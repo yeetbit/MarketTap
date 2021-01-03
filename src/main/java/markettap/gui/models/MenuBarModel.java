@@ -116,6 +116,7 @@ public class MenuBarModel extends JMenuBar{
         return item;
             
     }
+    
 
     public MenuItemModel getChangeTap() {
         return changeTap;
@@ -209,6 +210,17 @@ public class MenuBarModel extends JMenuBar{
         }
 
     }
+
+    public class CoinItemModel extends JMenuItem{
+
+        private static final long serialVersionUID = 1L;
+
+        public CoinItemModel(String name){
+            this.setText(name);
+        }
+
+    }
+
 
 
 
