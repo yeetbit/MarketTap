@@ -93,14 +93,10 @@ public class Controller extends Thread implements ActionListener, MouseListener{
 
         for (String name : ar) {
             MenuBarModel.MenuItemModel item = menu.setOpenTap(name);
-
-            eventStack.add(item);
-            
-            
+            item.addActionListener(this);
+            eventStack.add(item); 
         }
-
         
-
         menu.getChangeTap().addActionListener(this);
         menu.getCloseTap().addActionListener(this);
         menu.getCreateNewTap().addActionListener(this);
@@ -170,8 +166,20 @@ public class Controller extends Thread implements ActionListener, MouseListener{
 
     @Override
     public void actionPerformed(ActionEvent e){
+
+        Object source = e.getSource();
+
+
+        for (MenuBarModel.MenuItemModel item : eventStack) {
+            if(item.getText()==e.getSource()){
+
+
+            }
+            
+        }
+
        
-        if(e.getSource()==menu.getChangeTap()){
+        if(e.getSource()==eventStack.{
             System.out.println("pressed Open stream button");
             try{ 
                 newStream();
