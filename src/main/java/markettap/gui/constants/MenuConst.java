@@ -2,7 +2,11 @@ package markettap.gui.constants;
 
 public enum MenuConst {
 
-    edit{ "1",  }
+    // edit, taps, warnings, importexport, view, window, theme, help;
+
+    EDIT, TAPS, WARNINGS, IMPORTEXPORT, VIEW, WINDOW, THEME, HELP;
+
+    
 
 
 
