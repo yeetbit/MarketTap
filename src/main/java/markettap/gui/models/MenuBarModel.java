@@ -5,7 +5,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import java.awt.Color;
 import java.util.ArrayList;
-
+import markettap.gui.constants.MenuConst;
 public class MenuBarModel extends JMenuBar{
     
     private static final long serialVersionUID = -1965926954804999754L;
@@ -43,6 +43,12 @@ public class MenuBarModel extends JMenuBar{
 
 
     public MenuBarModel(){
+
+        MenuConst[] m= m.;
+
+        for (String booboo : m) {
+            
+        }
        
         edit = new MenuModel("edit");
         taps = new MenuModel("taps");
