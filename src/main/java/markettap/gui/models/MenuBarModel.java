@@ -44,12 +44,7 @@ public class MenuBarModel extends JMenuBar{
 
     public MenuBarModel(){
 
-        MenuConst[] m= m.;
-
-        for (String booboo : m) {
-            
-        }
-       
+        // enum??
         edit = new MenuModel("edit");
         taps = new MenuModel("taps");
         openTap = new MenuModel("open");
