@@ -42,7 +42,7 @@ import org.java_websocket.handshake.ServerHandshake;
  Rethinking the pattern design, scheduled lessons for design patterns to fix multiple problems.
  Based on new theory's we have to work more with classes and intefaces, and create more abstraction.
  example, create classes with abstract methods or more like interfaces which inherit the Super class
- propertys and modify actions within the interface. 
+ properties and modify actions within the interface. 
  */
 
 public class Controller extends Thread implements ActionListener, MouseListener{
