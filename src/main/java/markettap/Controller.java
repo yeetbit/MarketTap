@@ -25,15 +25,23 @@ import markettap.gui.models.StreamPick;
 import markettap.gui.models.topModel;
 import markettap.gui.models.MenuBarModel.MenuModel;
 import markettap.gui.viewports.WindowModel;
+
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft_6455;
 import org.java_websocket.framing.PongFrame;
 import org.java_websocket.handshake.ServerHandshake;
 
 /* 
- TODO: Need to populate this Controller class with the API handling of some sort,
+ TODO: 
+ XX-12-2020
+ Need to populate this Controller class with the API handling of some sort,
  this because the Java-WebSocket class has Overridden "listener" methods which cannot
  be accessed from outside. At least not in the way that I want, so i have to rearrange a little bit.
+
+ 10-02-2021
+ Rethinking the pattern design, scheduled lessons for design patterns to fix multiple problems.
+ Based on new theory's we have to work more with classes and intefaces, and create more abstraction.
+  
  */
 
 public class Controller extends Thread implements ActionListener, MouseListener{
