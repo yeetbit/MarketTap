@@ -118,7 +118,6 @@ public class MenuBarModel extends JMenuBar{
             
     }
     
-
     public MenuItemModel getChangeTap() {
         return changeTap;
     }
