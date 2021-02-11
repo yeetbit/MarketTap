@@ -48,7 +48,6 @@ import org.java_websocket.handshake.ServerHandshake;
 public class Controller extends Thread implements ActionListener, MouseListener{
 
     // GUI builder builds de global window with the on first hand the User controls to initiate Streams
-
     // used Color Theme light to dark: F8B195   F67280   C06C84   6C5B7B   355C7D 
     // or more greenisch light to dark: E5FCC2   9DE0AD   45ADA8   547980   594F4F 
 
