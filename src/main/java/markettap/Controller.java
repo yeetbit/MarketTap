@@ -192,6 +192,11 @@ public class Controller extends Thread implements ActionListener, MouseListener{
             
         }
 
+
+        /* 
+            Eventhandlers need to be Dynamically Generate in a seperate class or innerclass
+            which gets properties via the given parameters. 
+        */
        
         if(e.getSource()==eventStack.{
             System.out.println("pressed Open stream button");
