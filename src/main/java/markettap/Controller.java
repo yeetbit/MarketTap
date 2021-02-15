@@ -104,6 +104,12 @@ public class Controller extends Thread implements ActionListener, MouseListener{
             item.addActionListener(this);
             eventStack.add(item); 
         }
+
+        /* 
+        TODO:
+            Make actionlisteners dynamically generated, use with inneclasses
+        
+        */
         
         menu.getChangeTap().addActionListener(this);
         menu.getCloseTap().addActionListener(this);
