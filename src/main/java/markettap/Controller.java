@@ -25,6 +25,7 @@ import markettap.gui.models.StreamPick;
 import markettap.gui.models.topModel;
 import markettap.gui.models.MenuBarModel.MenuModel;
 import markettap.gui.viewports.WindowModel;
+import markettap.api_exchange.StaticMethods;
 
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft_6455;
@@ -110,6 +111,8 @@ public class Controller extends Thread implements ActionListener, MouseListener{
             Make actionlisteners dynamically generated, use with inneclasses
         
         */
+
+        Double returnValues[] = StaticMethods.change(12.34, 100.39);
         
         menu.getChangeTap().addActionListener(this);
         menu.getCloseTap().addActionListener(this);
