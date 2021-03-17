@@ -132,6 +132,7 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         menu.getDebug().addActionListener(this);
         menu.getChat().addActionListener(this);
         menu.getAbout().addActionListener(this);
+        
 
     }
 

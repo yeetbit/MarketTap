@@ -41,6 +41,8 @@ public class MenuBarModel extends JMenuBar{
     private MenuItemModel chat;
     private MenuItemModel about;
 
+    private String testje;
+
 
     public MenuBarModel(){
 
@@ -109,6 +111,14 @@ public class MenuBarModel extends JMenuBar{
         this.add(view);
         this.add(help);
 
+        testje = "klaas";
+
+        
+
+    }
+
+    public String getTestje(){
+        return testje;
     }
     
     public MenuItemModel setOpenTap(String name) {
