@@ -108,14 +108,24 @@ public class Controller extends Thread implements ActionListener, MouseListener{
 
         /* 
         TODO:
-            Make actionlisteners dynamically generated, use with inneclasses
+            Make actionlisteners dynamically generated, use with innerclasses/anonymous classes
         
         */
 
         Double returnValues[] = StaticMethods.change(12.34, 100.39);
+
         
-        menu.getChangeTap().addActionListener(this);
-        menu.getCloseTap().addActionListener(this);
+        menu.getChangeTap().addActionListener(ae -> clickEvent());
+        menu.getCloseTap().addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                if(this==e.getSource()){
+
+                };
+
+
+            }
+        });
         menu.getCreateNewTap().addActionListener(this);
         menu.getModifyConfig().addActionListener(this);
         menu.getNewWarning().addActionListener(this);
@@ -132,7 +142,19 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         menu.getDebug().addActionListener(this);
         menu.getChat().addActionListener(this);
         menu.getAbout().addActionListener(this);
+
+
+
+
         
+
+    }
+
+    public void clickEvent(){
+        System.out.println("The lambda expression worked!");
+    };
+    private void clickEvent2(){
+        System.out.println("The Anonymous method worked!");
 
     }
 
@@ -185,34 +207,16 @@ public class Controller extends Thread implements ActionListener, MouseListener{
     @Override
     public void actionPerformed(ActionEvent e){
 
-        Object source = e.getSource();
-
-
-        for (MenuBarModel.MenuItemModel item : eventStack) {
-            if(item.getText()==e.getSource()){
-
-
-            }
-            
-        }
-
-
+     
         /* 
             Eventhandlers need to be Dynamically Generate in a seperate class or innerclass
             which gets properties via the given parameters. 
+
+            @update
+            Working on it
         */
        
-        if(e.getSource()==eventStack.{
-            System.out.println("pressed Open stream button");
-            try{ 
-                newStream();
-                // initWebSocket("ws://echo.websocket.org");
-                // wsc.connect();
-                
-            } catch (Exception el) {
-                el.printStackTrace();
-            }
-        }else if(e.getSource()==menu.getChangeTap()){
+        if(e.getSource()==menu.getChangeTap()){
             System.out.println("pressed ChangeTap");
         }else if(e.getSource()==menu.getCloseTap()){
             System.out.println("pressed close button");
