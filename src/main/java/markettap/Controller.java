@@ -46,7 +46,7 @@ import org.java_websocket.handshake.ServerHandshake;
  properties and modify actions within the interface. 
  */
 
-public class Controller extends Thread implements ActionListener, MouseListener{
+public class Controller extends Thread {
 
     // GUI builder builds de global window with the on first hand the User controls to initiate Streams
     // used Color Theme light to dark: F8B195   F67280   C06C84   6C5B7B   355C7D 
@@ -100,11 +100,6 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         //window.pack();
         String[] ar = apiMgr.getArrayOfAllCoins();
 
-        for (String name : ar) {
-            MenuBarModel.MenuItemModel item = menu.setOpenTap(name);
-            item.addActionListener(this);
-            eventStack.add(item); 
-        }
 
         /* 
         TODO:
@@ -122,22 +117,22 @@ public class Controller extends Thread implements ActionListener, MouseListener{
                 clickEvent2();
             }
         });
-        menu.getCreateNewTap().addActionListener(this);
-        menu.getModifyConfig().addActionListener(this);
-        menu.getNewWarning().addActionListener(this);
-        menu.getChangeWarning().addActionListener(this);
-        menu.getRemoveWarning().addActionListener(this);
-        menu.getImportExport().addActionListener(this);
-        menu.getPreferences().addActionListener(this);
-        menu.getExit().addActionListener(this);
-        menu.getA().addActionListener(this);
-        menu.getB().addActionListener(this);
-        menu.getLarger().addActionListener(this);
-        menu.getSmaller().addActionListener(this);
-        menu.getWelcome().addActionListener(this);
-        menu.getDebug().addActionListener(this);
-        menu.getChat().addActionListener(this);
-        menu.getAbout().addActionListener(this);
+        // menu.getCreateNewTap().addActionListener(this);
+        // menu.getModifyConfig().addActionListener(this);
+        // menu.getNewWarning().addActionListener(this);
+        // menu.getChangeWarning().addActionListener(this);
+        // menu.getRemoveWarning().addActionListener(this);
+        // menu.getImportExport().addActionListener(this);
+        // menu.getPreferences().addActionListener(this);
+        // menu.getExit().addActionListener(this);
+        // menu.getA().addActionListener(this);
+        // menu.getB().addActionListener(this);
+        // menu.getLarger().addActionListener(this);
+        // menu.getSmaller().addActionListener(this);
+        // menu.getWelcome().addActionListener(this);
+        // menu.getDebug().addActionListener(this);
+        // menu.getChat().addActionListener(this);
+        // menu.getAbout().addActionListener(this);
 
 
 
@@ -200,90 +195,7 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e){
-
-     
-        /* 
-            Eventhandlers need to be Dynamically Generate in a seperate class or innerclass
-            which gets properties via the given parameters. 
-
-            @update
-            Working on it
-        */
-       
-        if(e.getSource()==menu.getChangeTap()){
-            System.out.println("pressed ChangeTap");
-        }else if(e.getSource()==menu.getCloseTap()){
-            System.out.println("pressed close button");
-        }else if(e.getSource()==menu.getCreateNewTap()){
-            System.out.println("pressed new entry button");            
-        }else if(e.getSource()==menu.getModifyConfig()){
-            System.out.println("pressed ChangeTap");
-        }else if(e.getSource()==menu.getNewWarning()){
-            System.out.println("pressed new warning button");
-        }else if(e.getSource()==menu.getChangeWarning()){
-            System.out.println("pressed ChangeTap");
-        }else if(e.getSource()==menu.getRemoveWarning()){
-            System.out.println("pressed remove warning");
-        }else if(e.getSource()==menu.getImportExport()){
-            System.out.println("pressed import export");            
-        }else if(e.getSource()==menu.getPreferences()){
-            System.out.println("pressed preferences");
-        }else if(e.getSource()==menu.getExit()){
-            System.out.println("pressed exit");
-            window.setVisible(false);
-            System.exit(0);
-        }else if(e.getSource()==menu.getA()){
-            System.out.println("pressed theme A");            
-        }else if(e.getSource()==menu.getB()){
-            System.out.println("pressed theme B");
-        }else if(e.getSource()==menu.getLarger()){
-            System.out.println("Pressed Larger View");
-        }else if(e.getSource()==menu.getSmaller()){
-            System.out.println("Pressed Smaller View");            
-        }else if(e.getSource()==menu.getWelcome()){
-            System.out.println("pressed Welcom button");            
-        }else if(e.getSource()==menu.getDebug()){
-            System.out.println("pressed Debug");
-        }else if(e.getSource()==menu.getChat()){
-            System.out.println("Pressed chat");
-        }else if(e.getSource()==menu.getAbout()){
-            System.out.println("Pressed About");            
-        }else{
-            System.out.println("something went wrong, button id is: "+e.getSource());
-        }
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        // TODO Auto-generated method stub
-
-    }
+   
 
     private void initWebSocket(String uri){
 
