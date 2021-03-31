@@ -119,11 +119,7 @@ public class Controller extends Thread implements ActionListener, MouseListener{
         menu.getCloseTap().addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                if(this==e.getSource()){
-
-                };
-
-
+                clickEvent2();
             }
         });
         menu.getCreateNewTap().addActionListener(this);
