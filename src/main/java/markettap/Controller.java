@@ -117,6 +117,10 @@ public class Controller extends Thread {
                 clickEvent2();
             }
         });
+
+        /* 
+            Implementation for eventhandling is on its way, but needs more finetuning to be dynamic
+        */
         // menu.getCreateNewTap().addActionListener(this);
         // menu.getModifyConfig().addActionListener(this);
         // menu.getNewWarning().addActionListener(this);
