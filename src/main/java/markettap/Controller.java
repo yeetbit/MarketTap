@@ -110,7 +110,7 @@ public class Controller extends Thread {
         Double returnValues[] = StaticMethods.change(12.34, 100.39);
 
         
-        menu.getChangeTap().addActionListener(ae -> clickEvent());
+        menu.getChangeTap().addActionListener((ae) -> clickEvent());
         menu.getCloseTap().addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
@@ -121,7 +121,7 @@ public class Controller extends Thread {
         /* 
             Implementation for eventhandling is on its way, but needs more finetuning to be dynamic
         */
-        // menu.getCreateNewTap().addActionListener(this);
+        // menu.getCreateNewTap().addActionListener();
         // menu.getModifyConfig().addActionListener(this);
         // menu.getNewWarning().addActionListener(this);
         // menu.getChangeWarning().addActionListener(this);
