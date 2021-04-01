@@ -91,6 +91,8 @@ public class Controller extends Thread {
         baseWindow();
     };
 
+    
+
     private void baseWindow(){
         
         window = new WindowModel("Crypto Listener", 388, 512, backgroundcolor);
