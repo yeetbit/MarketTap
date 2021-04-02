@@ -44,6 +44,9 @@ import org.java_websocket.handshake.ServerHandshake;
  Based on new theory's we have to work more with classes and intefaces, and create more abstraction.
  example, create classes with abstract methods or more like interfaces which inherit the Super class
  properties and modify actions within the interface. 
+
+ 02-02-2021
+ Working on eventhandler solutions
  */
 
 public class Controller extends Thread {
