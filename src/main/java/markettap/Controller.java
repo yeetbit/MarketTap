@@ -1,19 +1,11 @@
 package markettap;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.Dimension;
-import java.io.BufferedReader;
-import java.net.Inet4Address;
-import java.net.InetSocketAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
-import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
 
@@ -29,7 +21,6 @@ import markettap.api_exchange.StaticMethods;
 
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft_6455;
-import org.java_websocket.framing.PongFrame;
 import org.java_websocket.handshake.ServerHandshake;
 
 /* 
