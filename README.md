@@ -1,4 +1,4 @@
-## MarketTap
+# MarketTap
 
 ## About
 
@@ -7,14 +7,14 @@ MarketTap is a tool written in Java, which tracks the history of your Crypto cur
 Status: On hold, source is not complete.
 
 
-# Features
+## Features
 
 - Fast and Light multi platform desktop application 
 - Track total investment, revenue and losses of your Binance account. 
 - Display total Earnings/Losses in a simple manner
 - Create warnings on market behavior
 
-# Future features
+## Future features
 
 - Securely Link live trading account
 - Enable Market & Future trading in desktop app
