@@ -2,7 +2,7 @@
 
 ## About
 
-MarketTap is a tool written in Java, which tracks the history of your Crypto currency transactions and trades. The data source is mainly focussed on the Binance API.
+MarketTap is a tool written in Java, which tracks the history of your Crypto transactions and trades. The data source is mainly focussed on the Binance API.
 
 Status: On hold, source is not complete.
 
