@@ -9,7 +9,7 @@ Status: On hold, source is not complete.
 
 ## Features
 
-- [ ] Fast and Light multi platform desktop application 
+- Fast and Light multi platform desktop application 
 - Track total investment, revenue and losses of your Binance account. 
 - Display total Earnings/Losses in a simple manner
 - Create warnings on market behavior
